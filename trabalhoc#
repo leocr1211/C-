@@ -1,0 +1,1164 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace estudospraprova
+{
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+            // Integrantes: Pedro Henrique, Mickael, Leonardo, Eduardo Armesto, Weslley e Victor Hugo
+            // Turma: CTII-117
+
+            string produtoCnome, produtoCcategoria, produtoCqntdestoque, resposta = "", categoria = "";
+            int codigoteclado = 111, precoteclado = 70, margemteclado = 20;
+            int codigolapis = 222, precolapis = 1, margemlapis = 100;
+            int codigobrinco = 333, precobrinco = 10, margembrinco = 150;
+            int codigorelogio = 555, precorelogio = 150, margemrelogio = 50;
+            int codigochip = 444, precochip = 30, margemchip = 10;
+            int produtoCcodigo;
+            int quantidadeprodutoT = 13;
+            int quantidadeprodutoB = 10;
+            int quantidadeprodutoL = 2;
+            int quantidadeprodutoC = 20;
+            int quantidadeprodutoR = 7;
+            double produtoCmargem, produtoCpreco;
+            double precofteclado = precoteclado + (0.2 * precoteclado), precoflapis = precolapis + (1.00 * precolapis), precofbrinco = precobrinco + (1.5 * precobrinco);
+            double precofrelogio = precorelogio + (0.5 * precorelogio), precofchip = precochip + (0.1 * precochip);
+
+
+        //Menu
+
+        voltarmenu:
+
+            Console.SetCursorPosition(80, 3);
+            Console.Write("-------------------------------------------------------------------------------");
+
+            Console.SetCursorPosition(80, 7);
+            Console.Write("-------------------------------------------------------------------------------");
+
+            Console.SetCursorPosition(112, 5);
+            Console.Write("-- Info Store --");
+
+            Console.SetCursorPosition(85, 10);
+            Console.Write("1. Cadastrar Produto");
+
+            Console.SetCursorPosition(85, 12);
+            Console.Write("2. Consultar Produto");
+
+            Console.SetCursorPosition(85, 14);
+            Console.Write("3. Listar todos os produtos");
+
+            Console.SetCursorPosition(85, 16);
+            Console.Write("4. Realizar venda");
+
+            Console.SetCursorPosition(85, 18);
+            Console.Write("5. Controle de Estoque");
+
+            Console.SetCursorPosition(85, 20);
+            Console.Write("6. Gerenciar Promoção");
+
+            Console.SetCursorPosition(85, 22);
+            Console.Write("7. Relatórios do Dia");
+
+            Console.SetCursorPosition(85, 24);
+            Console.Write("8. Sair");
+
+            Console.SetCursorPosition(85, 28);
+            Console.Write("Opção Escolhida: ");
+
+            int opcao;
+            Console.SetCursorPosition(101, 28);
+            opcao = int.Parse(Console.ReadLine());
+
+            // Cadastrar Produto
+
+            if (opcao == 1)
+            {
+                Console.Clear();
+
+                Console.SetCursorPosition(80, 3);
+                Console.Write("-------------------------------------------------------------------------------");
+
+                Console.SetCursorPosition(80, 7);
+                Console.Write("-------------------------------------------------------------------------------");
+
+                Console.SetCursorPosition(80, 20);
+                Console.Write("-------------------------------------------------------------------------------");
+
+                Console.SetCursorPosition(112, 5);
+                Console.Write("== CADASTRO - PRODUTOS ==");
+
+                Console.SetCursorPosition(85, 10);
+                Console.Write("Digite o código do produto que deseja cadastrar: ");
+
+                produtoCcodigo = int.Parse(Console.ReadLine());
+
+                if (produtoCcodigo == 111 | produtoCcodigo == 222 | produtoCcodigo == 333 | produtoCcodigo == 444 | produtoCcodigo == 555)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(92, 5);
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write("Esse produto já está cadastrado!");
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    goto voltarmenu;
+                }
+
+                Console.SetCursorPosition(85, 11);
+                Console.Write("Nome do produto: ");
+
+                produtoCnome = Console.ReadLine();
+
+                Console.SetCursorPosition(85, 12);
+                Console.Write("Categoria (1-Informatica, 2-Acessorios, 3-Papelaria, 4-Telefonia): ");
+
+                produtoCcategoria = Console.ReadLine();
+
+                Console.SetCursorPosition(85, 13);
+                Console.Write("Preço de custo: ");
+
+                produtoCpreco = double.Parse(Console.ReadLine());
+
+                Console.SetCursorPosition(85, 14);
+                Console.Write("Margem de lucro (%): ");
+
+                produtoCmargem = double.Parse(Console.ReadLine());
+
+                Console.SetCursorPosition(85, 15);
+                Console.Write("Quantidade em estoque: ");
+
+                produtoCqntdestoque = Console.ReadLine();
+
+                // margem de lucro ja acrecida a 100% já escrita
+                Console.SetCursorPosition(85, 18);
+                Console.Write("Produto cadastrado com sucesso! Preço final de venda: ");
+
+                double arrumandopreco;
+                arrumandopreco = produtoCpreco + produtoCpreco * (produtoCmargem / 100);
+
+                Console.WriteLine("{0}!", arrumandopreco);
+
+                Console.ReadKey();
+                Console.Clear();
+
+                goto voltarmenu;
+            }
+            // Consultar Produto
+
+            else if (opcao == 2)
+            {
+                Console.Clear();
+
+                Console.SetCursorPosition(80, 3);
+                Console.Write("-------------------------------------------------------------------------------");
+
+                Console.SetCursorPosition(80, 7);
+                Console.Write("-------------------------------------------------------------------------------");
+
+                Console.SetCursorPosition(112, 5);
+                Console.Write("== Consultar Produto ==");
+
+                Console.SetCursorPosition(85, 10);
+                Console.Write("Digite o código do produto procurado: ");
+
+                int codigo = int.Parse(Console.ReadLine());
+
+                if (codigo == codigoteclado)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(112, 5);
+                    Console.Write("== Consultar Produto ==");
+
+                    Console.SetCursorPosition(85, 8);
+                    Console.Write("Digite o código do produto procurado: ");
+
+                    Console.SetCursorPosition(85, 10);
+                    Console.Write("Nome: Teclado");
+
+                    Console.SetCursorPosition(85, 12);
+                    Console.Write("Categoria: Informática");
+
+                    Console.SetCursorPosition(85, 14);
+                    Console.Write("Preço: {0}", precoteclado);
+
+                    Console.SetCursorPosition(85, 16);
+                    Console.Write("Margem de lucro(%): {0}", margemteclado);
+
+                    Console.SetCursorPosition(85, 18);
+                    Console.Write("Estoque: {0}", quantidadeprodutoT);
+
+                    Console.SetCursorPosition(85, 20);
+                    Console.Write("Preço Final: {0}", precofteclado);
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    goto voltarmenu;
+                }
+
+                else if (codigo == codigolapis)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(112, 5);
+                    Console.Write("== Consultar Produto ==");
+
+                    Console.SetCursorPosition(85, 8);
+                    Console.Write("Digite o código do produto procurado: ");
+
+                    Console.SetCursorPosition(85, 10);
+                    Console.Write("Nome: Lápis");
+
+                    Console.SetCursorPosition(85, 12);
+                    Console.Write("Categoria: Papelaria");
+
+                    Console.SetCursorPosition(85, 14);
+                    Console.Write("Preço: {0}", precolapis);
+
+                    Console.SetCursorPosition(85, 16);
+                    Console.Write("Margem de lucro(%): {0}", margemlapis);
+
+                    Console.SetCursorPosition(85, 18);
+                    Console.Write("Estoque: {0}", quantidadeprodutoL);
+
+                    Console.SetCursorPosition(85, 20);
+                    Console.Write("Preço Final: {0}", precoflapis);
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    goto voltarmenu;
+                }
+
+                else if (codigo == codigobrinco)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(112, 5);
+                    Console.Write("== Consultar Produto ==");
+
+                    Console.SetCursorPosition(85, 8);
+                    Console.Write("Digite o código do produto procurado: ");
+
+                    Console.SetCursorPosition(85, 10);
+                    Console.Write("Nome: Brinco");
+
+                    Console.SetCursorPosition(85, 12);
+                    Console.Write("Categoria: Acssório");
+
+                    Console.SetCursorPosition(85, 14);
+                    Console.Write("Preço: {0}", precobrinco);
+
+                    Console.SetCursorPosition(85, 16);
+                    Console.Write("Margem de lucro(%): {0}", margembrinco);
+
+                    Console.SetCursorPosition(85, 18);
+                    Console.Write("Estoque: {0}", quantidadeprodutoB);
+
+                    Console.SetCursorPosition(85, 20);
+                    Console.Write("Preço Final: {0}", precofbrinco);
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    goto voltarmenu;
+                }
+
+                else if (codigo == codigochip)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(112, 5);
+                    Console.Write("== Consultar Produto ==");
+
+                    Console.SetCursorPosition(85, 8);
+                    Console.Write("Digite o código do produto procurado: ");
+
+                    Console.SetCursorPosition(85, 10);
+                    Console.Write("Nome: Chip");
+
+                    Console.SetCursorPosition(85, 12);
+                    Console.Write("Categoria: Telefonia");
+
+                    Console.SetCursorPosition(85, 14);
+                    Console.Write("Preço: {0}", precochip);
+
+                    Console.SetCursorPosition(85, 16);
+                    Console.Write("Margem de lucro(%): {0}", margemchip);
+
+                    Console.SetCursorPosition(85, 18);
+                    Console.Write("Estoque: {0}", quantidadeprodutoC);
+
+                    Console.SetCursorPosition(85, 20);
+                    Console.Write("Preço Final: {0}", precofchip);
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    goto voltarmenu;
+                }
+
+                else if (codigo == codigorelogio)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(112, 5);
+                    Console.Write("== Consultar Produto ==");
+
+                    Console.SetCursorPosition(85, 8);
+                    Console.Write("Digite o código do produto procurado: ");
+
+                    Console.SetCursorPosition(85, 10);
+                    Console.Write("Nome: Relógio");
+
+                    Console.SetCursorPosition(85, 12);
+                    Console.Write("Categoria: Acssório");
+
+                    Console.SetCursorPosition(85, 14);
+                    Console.Write("Preço: {0}", precorelogio);
+
+                    Console.SetCursorPosition(85, 16);
+                    Console.Write("Margem de lucro(%): {0}", margemrelogio);
+
+                    Console.SetCursorPosition(85, 18);
+                    Console.Write("Estoque: {0}", quantidadeprodutoR);
+
+                    Console.SetCursorPosition(85, 20);
+                    Console.Write("Preço Final: {0}", precofrelogio);
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    goto voltarmenu;
+                }
+                // Produto não cadastrado
+
+                else if (codigo != codigoteclado | codigo != codigobrinco | codigo != codigochip | codigo != codigorelogio | codigo != codigolapis)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.Clear();
+
+                    Console.SetCursorPosition(120, 5);
+                    Console.Write("Produto não cadastrado!");
+
+                    Console.ReadKey();
+
+                    Console.Clear();
+
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    goto voltarmenu;
+                }
+
+                Console.ReadLine();
+
+                goto voltarmenu;
+            }
+            // Listar produtos
+
+            else if (opcao == 3)
+            {
+                Console.Clear();
+
+                Console.SetCursorPosition(50, 5);
+                Console.Write("1. Teclado | Categoria: Informática | Preço: 70  | Margem de lucro(%): 20  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoT, precofteclado);
+
+                Console.SetCursorPosition(50, 7);
+                Console.Write("2. Lápis   | Categoria: Papelaria   | Preço: 1   | Margem de lucro(%): 100 | Estoque: {0} | Preço Final: {1}", quantidadeprodutoL, precoflapis);
+
+                Console.SetCursorPosition(50, 9);
+                Console.Write("3. Brinco  | Categoria: Acessórios  | Preço: 10  | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoB, precofbrinco);
+
+                Console.SetCursorPosition(50, 11);
+                Console.Write("4. Chip    | Categoria: Telefonia   | Preço: 30  | Margem de lucro(%): 10  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoC, precofchip);
+
+                Console.SetCursorPosition(50, 13);
+                Console.Write("5. Relógio | Categoria: Acessórios  | Preço: 150 | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoR, precofrelogio);
+
+                Console.ReadKey();
+                Console.Clear();
+                goto voltarmenu;
+            }
+
+
+            //Realização de Venda     
+
+            else if (opcao == 4)
+            {
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Black;
+
+                double precopromocional;
+                precopromocional = (precofteclado * 0.85);
+
+                double precolapispro;
+                precolapispro = (precoflapis * 0.90);
+
+                double precobrincopr;
+                precobrincopr = (precofbrinco * 0.65);
+
+                double precochippr;
+                precochippr = (precofchip * 0.90);
+
+                double precorelogiopr;
+                precorelogiopr = (precofrelogio * 0.30);
+
+                Console.SetCursorPosition(92, 3);
+                Console.Write("REALIZAR VENDA");
+
+                Console.SetCursorPosition(50, 5);
+                Console.Write("1. Teclado | Categoria: Informática | Preço: 70  | Margem de lucro(%): 20  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoT, precofteclado);
+
+                Console.SetCursorPosition(50, 7);
+                Console.Write("2. Lápis   | Categoria: Papelaria   | Preço: 1   | Margem de lucro(%): 100 | Estoque: {0} | Preço Final: {1}", quantidadeprodutoL, precoflapis);
+
+                Console.SetCursorPosition(50, 9);
+                Console.Write("3. Brinco  | Categoria: Acessórios  | Preço: 10  | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoB, precofbrinco);
+
+                Console.SetCursorPosition(50, 11);
+                Console.Write("4. Chip    | Categoria: Telefonia   | Preço: 30  | Margem de lucro(%): 10  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoC, precofchip);
+
+                Console.SetCursorPosition(50, 13);
+                Console.Write("5. Relógio | Categoria: Acessórios  | Preço: 150 | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoR, precofrelogio);
+
+                int venda;
+                Console.SetCursorPosition(50, 15);
+                Console.Write("Escolha um produto: ");
+
+                venda = int.Parse(Console.ReadLine());
+
+                switch (venda)
+                {
+                    case 1:
+
+                        Console.SetCursorPosition(50, 20);
+                        Console.Write("Você deseja vender um teclado? (S/N) : ");
+
+                        string vendadoteclado = Console.ReadLine().ToUpper();
+
+                        if (vendadoteclado == "S")
+                        {
+                            quantidadeprodutoT = quantidadeprodutoT - 1;
+
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda feita!");
+                        }
+                        else if (vendadoteclado == "N")
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda cancelada!");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("ERRO, venda cancelada");
+                        }
+                        break;
+
+                    case 2:
+
+                        Console.SetCursorPosition(50, 20);
+                        Console.Write("Você deseja vender um lápis? (S/N) : ");
+                        string vendadolapis = Console.ReadLine().ToUpper();
+
+                        if (vendadolapis == "S")
+                        {
+                            quantidadeprodutoL = quantidadeprodutoL - 1;
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda feita");
+                        }
+                        else if (vendadolapis == "N")
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda cancelada!");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("ERRO, venda cancelada");
+                        }
+                        break;
+
+                    case 3:
+
+                        Console.SetCursorPosition(50, 20);
+                        Console.Write("Você deseja vender um brinco? (S/N) : ");
+
+                        Console.SetCursorPosition(50, 22);
+                        string vendadobrinco = Console.ReadLine().ToUpper();
+
+                        if (vendadobrinco == "")
+                        {
+                            quantidadeprodutoB = quantidadeprodutoB - 1;
+
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda feita!");
+                        }
+                        else if (vendadobrinco == "N")
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda cancelada!");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("ERRO, venda cancelada!");
+                        }
+                        break;
+
+                    case 4:
+
+                        Console.SetCursorPosition(50, 20);
+                        Console.Write("Você deseja vender um chip? (S/N) : ");
+
+                        Console.SetCursorPosition(50, 22);
+                        string vendadochip = Console.ReadLine().ToUpper();
+
+                        if (vendadochip == "S")
+                        {
+                            quantidadeprodutoC = quantidadeprodutoC - 1;
+
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda feita!");
+                        }
+                        else if (vendadochip == "N")
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda cancelada!");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("ERRO, venda cancelada");
+                        }
+                        break;
+
+                    case 5:
+
+                        Console.SetCursorPosition(50, 20);
+                        Console.Write("Você deseja vender um relógio? (S/N) : ");
+
+                        Console.SetCursorPosition(50, 22);
+                        string vendadorelogio = Console.ReadLine().ToUpper();
+
+                        if (vendadorelogio == "S")
+                        {
+                            quantidadeprodutoR = quantidadeprodutoR - 1;
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda feita!");
+                        }
+                        else if (vendadorelogio == "N")
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("Venda cancelada!");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 24);
+                            Console.Write("ERRO, venda cancelada");
+                        }
+                        break;
+                }
+
+                Console.ReadKey();
+                Console.Clear();
+                goto voltarmenu;
+
+            }
+            else if (opcao == 5)
+            {
+            Controledeestoque:
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Black;
+
+                Console.SetCursorPosition(95, 5);
+                Console.Write("=== CONTROLE DE ESTOQUE ===");
+
+                Console.SetCursorPosition(85, 10);
+                Console.Write("1. Adicionar ao Estoque");
+
+                Console.SetCursorPosition(85, 12);
+                Console.Write("2. Remover do Estoque");
+
+                Console.SetCursorPosition(85, 14);
+                Console.Write("3.Verificar Estoque Baixo");
+
+                Console.SetCursorPosition(85, 16);
+                Console.Write("4.Voltar ao Menu Principal");
+
+                Console.SetCursorPosition(85, 18);
+                Console.Write("Escolha uma opção: ");
+
+                int opcaoCE;
+                Console.SetCursorPosition(105, 18);
+                opcaoCE = int.Parse(Console.ReadLine());
+
+
+                if (opcaoCE == 1) //escolha 1 ADICIONAR
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(85, 2);
+                    Console.Write("REMOVER DO ESTOQUE ");
+
+                    Console.SetCursorPosition(50, 5);
+                    Console.Write("1. Teclado | Categoria: Informática | Preço: 70  | Margem de lucro(%): 20  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoT, precofteclado);
+
+                    Console.SetCursorPosition(50, 7);
+                    Console.Write("2. Lápis   | Categoria: Papelaria   | Preço: 1   | Margem de lucro(%): 100 | Estoque: {0} | Preço Final: {1}", quantidadeprodutoL, precoflapis);
+
+                    Console.SetCursorPosition(50, 9);
+                    Console.Write("3. Brinco  | Categoria: Acessórios  | Preço: 10  | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoB, precofbrinco);
+
+                    Console.SetCursorPosition(50, 11);
+                    Console.Write("4. Chip    | Categoria: Telefonia   | Preço: 30  | Margem de lucro(%): 10  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoC, precofchip);
+
+                    Console.SetCursorPosition(50, 13);
+                    Console.Write("5. Relógio | Categoria: Acessórios  | Preço: 150 | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoR, precofrelogio);
+
+                    Console.SetCursorPosition(85, 17);
+                    Console.Write("Escolha o produto que deseja: ");
+
+                    int opcaoAE;
+                    Console.SetCursorPosition(115, 17);
+                    opcaoAE = int.Parse(Console.ReadLine());
+
+                    switch (opcaoAE)
+                    {
+                        case 1:
+                            int adicionandotec;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoT);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja adicionar? ");
+                            adicionandotec = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoT = quantidadeprodutoT + adicionandotec;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} teclados!", quantidadeprodutoT);
+                            break;
+                        case 2:
+                            int adicionandoLap;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoL);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja adicionar? ");
+                            adicionandoLap = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoL = quantidadeprodutoL + adicionandoLap;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} lápis!", quantidadeprodutoL);
+                            break;
+                        case 3:
+                            int adicionandobri;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoB);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja adicionar? ");
+                            adicionandobri = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoB = quantidadeprodutoB + adicionandobri;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} brincos!", quantidadeprodutoB);
+                            break;
+                        case 4:
+                            int adicionandoChi;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoC);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja adicionar? ");
+                            adicionandoChi = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoC = quantidadeprodutoC + adicionandoChi;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} Chips!", quantidadeprodutoC);
+                            break;
+                        case 5:
+
+                            int adicionandoReg;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoR);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja adicionar? ");
+                            adicionandoReg = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoR = quantidadeprodutoR + adicionandoReg;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} Relógios!", quantidadeprodutoR);
+                            break;
+
+                    }
+
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto Controledeestoque;
+                }
+
+
+                if (opcaoCE == 2) //escolha 2 REMOVER
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(85, 2);
+                    Console.Write("REMOVER DO ESTOQUE ");
+
+                    Console.SetCursorPosition(50, 5);
+                    Console.Write("1. Teclado | Categoria: Informática | Preço: 70  | Margem de lucro(%): 20  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoT, precofteclado);
+
+                    Console.SetCursorPosition(50, 7);
+                    Console.Write("2. Lápis   | Categoria: Papelaria   | Preço: 1   | Margem de lucro(%): 100 | Estoque: {0} | Preço Final: {1}", quantidadeprodutoL, precoflapis);
+
+                    Console.SetCursorPosition(50, 9);
+                    Console.Write("3. Brinco  | Categoria: Acessórios  | Preço: 10  | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoB, precofbrinco);
+
+                    Console.SetCursorPosition(50, 11);
+                    Console.Write("4. Chip    | Categoria: Telefonia   | Preço: 30  | Margem de lucro(%): 10  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoC, precofchip);
+
+                    Console.SetCursorPosition(50, 13);
+                    Console.Write("5. Relógio | Categoria: Acessórios  | Preço: 150 | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoR, precofrelogio);
+
+                    Console.SetCursorPosition(85, 17);
+                    Console.Write("Escolha o produto que deseja: ");
+
+                    int opcaoRE;
+                    Console.SetCursorPosition(115, 17);
+                    opcaoRE = int.Parse(Console.ReadLine());
+
+                    switch (opcaoRE)
+                    {
+                        case 1:
+                            int adicionandotec;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoT);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja remover? ");
+                            adicionandotec = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoT = quantidadeprodutoT - adicionandotec;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} teclados!", quantidadeprodutoT);
+                            break;
+                        case 2:
+                            int adicionandoLap;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoL);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja remover? ");
+                            adicionandoLap = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoL = quantidadeprodutoL - adicionandoLap;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} lápis!", quantidadeprodutoL);
+                            break;
+                        case 3:
+                            int adicionandobri;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoB);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja remover? ");
+                            adicionandobri = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoB = quantidadeprodutoB - adicionandobri;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} brincos!", quantidadeprodutoB);
+                            break;
+                        case 4:
+                            int adicionandoChi;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoC);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja remover? ");
+                            adicionandoChi = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoC = quantidadeprodutoC - adicionandoChi;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} Chips!", quantidadeprodutoC);
+                            break;
+                        case 5:
+                            int adicionandoReg;
+
+                            Console.SetCursorPosition(85, 19);
+                            Console.Write("Temos {0} unidades do produto!", quantidadeprodutoR);
+
+                            Console.SetCursorPosition(85, 21);
+                            Console.Write("Quantos que você deseja remover? ");
+                            adicionandoReg = int.Parse(Console.ReadLine());
+
+                            quantidadeprodutoR = quantidadeprodutoR - adicionandoReg;
+
+                            Console.SetCursorPosition(85, 23);
+                            Console.Write("Agora temos {0} Relógios!", quantidadeprodutoR);
+                            break;
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto Controledeestoque;
+
+                }
+                if (opcaoCE == 3)
+                {
+                    Console.Clear();
+
+                    Console.SetCursorPosition(85, 3);
+                    Console.Write("=== VERIFICAÇÃO DE ESTOQUE BAIXO ===");
+
+                    Console.SetCursorPosition(50, 5);
+                    Console.Write("1. Teclado | Categoria: Informática | Preço: 70  | Margem de lucro(%): 20  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoT, precofteclado);
+
+                    Console.SetCursorPosition(50, 7);
+                    Console.Write("2. Lápis   | Categoria: Papelaria   | Preço: 1   | Margem de lucro(%): 100 | Estoque: {0} | Preço Final: {1}", quantidadeprodutoL, precoflapis);
+
+                    Console.SetCursorPosition(50, 9);
+                    Console.Write("3. Brinco  | Categoria: Acessórios  | Preço: 10  | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoB, precofbrinco);
+
+                    Console.SetCursorPosition(50, 11);
+                    Console.Write("4. Chip    | Categoria: Telefonia   | Preço: 30  | Margem de lucro(%): 10  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoC, precofchip);
+
+                    Console.SetCursorPosition(50, 13);
+                    Console.Write("5. Relógio | Categoria: Acessórios  | Preço: 150 | Margem de lucro(%): 50  | Estoque: {0} | Preço Final: {1}", quantidadeprodutoR, precofrelogio);
+
+                    if (quantidadeprodutoT <= 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(35, 16);
+                        Console.Write("ALERTA! OS TECLADOS ESTÂO COM MENOS DE 5 UNIDADES | ESTOQUE : {0}", quantidadeprodutoT);
+                    }
+
+                    if (quantidadeprodutoL <= 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(35, 18);
+                        Console.Write("ALERTA! OS LAPIS ESTÂO COM MENOS DE 5 UNIDADES    | ESTOQUE : {0}", quantidadeprodutoL);
+                    }
+
+                    if (quantidadeprodutoB <= 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(35, 20);
+                        Console.Write("ALERTA! OS BRINCOS ESTÂO COM MENOS DE 5 UNIDADES  | ESTOQUE : {0}", quantidadeprodutoB);
+                    }
+
+                    if (quantidadeprodutoC <= 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(35, 22);
+                        Console.Write("ALERTA! OS CHIPS ESTÂO COM MENOS DE 5 UNIDADES    | ESTOQUE : {0}", quantidadeprodutoC);
+                    }
+
+                    if (quantidadeprodutoR <= 5)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(35, 24);
+                        Console.Write("ALERTA! RELÓGIOS ESTÂO COM MENOS DE 5 UNIDADES    | ESTOQUE : {0}", quantidadeprodutoR);
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto Controledeestoque;
+                }
+
+                if (opcaoCE == 4)
+                {
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto voltarmenu;
+                }
+            }
+            else if (opcao == 6) // GERENCIAR PROMOÇAO
+            {
+                Console.Clear();
+                int escolhap, escolhaAp, escolhaTp, escolhaDp;
+
+                Console.SetCursorPosition(110, 4);
+                Console.Write(" === GERENCIAR PROMOÇÃO ===");
+
+                Console.SetCursorPosition(95, 10);
+                Console.Write("1. Ativar Promoção");
+
+                Console.SetCursorPosition(95, 12);
+                Console.Write("2. Consultar Promoção Ativa");
+
+                Console.SetCursorPosition(95, 14);
+                Console.Write("3. Desativar Promoção");
+
+                Console.SetCursorPosition(95, 16);
+                Console.Write("4. Voltar ao Menu Principal");
+
+                Console.SetCursorPosition(95, 18);
+                Console.Write("Escolha uma opção: ");
+                escolhap = int.Parse(Console.ReadLine());
+
+                Console.ReadKey();
+                Console.Clear();
+
+                if (escolhap == 1)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.SetCursorPosition(110, 4);
+                    Console.Write(" === ATIVAR PROMOÇÃO ===");
+
+                    Console.SetCursorPosition(95, 10);
+                    Console.Write("Status atual: Nenhuma Promoção ativa");
+
+                    Console.SetCursorPosition(95, 12);
+                    Console.Write("Categoria para a promoção");
+
+                    Console.SetCursorPosition(95, 14);
+                    Console.Write("1. Informatica");
+
+                    Console.SetCursorPosition(95, 16);
+                    Console.Write("2. Acessórios");
+
+                    Console.SetCursorPosition(95, 18);
+                    Console.Write("3. Papelaria");
+
+                    Console.SetCursorPosition(95, 20);
+                    Console.Write("4. Telefonia");
+
+                    Console.SetCursorPosition(95, 22);
+                    Console.Write("Escolha uma opção: ");
+                    escolhaAp = int.Parse(Console.ReadLine());
+
+                    switch (escolhaAp)
+                    {
+                        case 1:
+                            categoria = "Informatica";
+                            break;
+                        case 2:
+                            categoria = "Acessórios";
+                            break;
+                        case 3:
+                            categoria = "Papelaria";
+                            break;
+                        case 4:
+                            categoria = "Telefonia";
+                            break;
+                        default:
+                        case 5:
+                            categoria = "Desconhecida";
+                            break;
+                    }
+
+                    Console.SetCursorPosition(95, 24);
+                    Console.Write("Desconto (%):");
+                    escolhaDp = int.Parse(Console.ReadLine());
+
+                    Console.SetCursorPosition(95, 26);
+                    Console.Write("Duração (horas):");
+                    escolhaTp = int.Parse(Console.ReadLine());
+
+                    Console.SetCursorPosition(95, 30);
+                    Console.Write("Confirmar promoção de {0}% na categoria {1} por {2} horas? (S/N): ", escolhaDp, categoria, escolhaTp);
+                    resposta = Console.ReadLine();
+
+                    if (resposta == "Sim" || resposta == "sim" || resposta == "S")
+                    {
+                        Console.SetCursorPosition(95, 34);
+                        Console.WriteLine("Mensagem: Promoção ativada com sucesso!!");
+                    }
+                    else if (resposta == "Não" || resposta == "não" || resposta == "N")
+                    {
+                        Console.SetCursorPosition(95, 34);
+                        Console.WriteLine("Mensagem: Promoção inválida");
+                    }
+
+
+
+                    Console.ReadKey();
+
+
+                    goto voltarmenu;
+                }
+
+                else if (escolhap == 2)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.SetCursorPosition(110, 5);
+                    Console.Write(" === CONSULTA DE PROMOÇÃO ATIVA ===");
+
+                    Console.SetCursorPosition(95, 10);
+                    Console.Write("PROMOÇÃO ATIVA");
+
+                    Console.SetCursorPosition(95, 12);
+                    Console.Write("Categoria: {0}", categoria);
+
+                    Console.SetCursorPosition(95, 14);
+                    Console.Write("Desconto:{0}");
+
+                    Console.SetCursorPosition(95, 16);
+                    Console.Write("Tempo Restante:");
+
+                    Console.SetCursorPosition(95, 18);
+                    Console.Write("PROMOÇÃO ATIVA");
+
+                    Console.ReadKey();
+                }
+
+            }
+            else if (opcao == 7) //RELATORIOS DO DIA
+            {
+                Console.Clear();
+
+                int reld;
+
+                Console.SetCursorPosition(110, 4);
+                Console.Write("=== RELATÓRIOS DO DIA ===");
+
+                Console.SetCursorPosition(95, 14);
+                Console.Write("1. Resumo de venda");
+
+                Console.SetCursorPosition(95, 16);
+                Console.Write("2. Faturamento Total");
+
+                Console.SetCursorPosition(95, 18);
+                Console.Write("3. status do estoque");
+
+                Console.SetCursorPosition(95, 20);
+                Console.Write("4. Volta ao menu principal");
+
+                Console.SetCursorPosition(95, 22);
+                Console.Write("Escolha uma opcão");
+
+                reld = int.Parse(Console.ReadLine());
+
+                if (reld == 1)
+                {
+                    Console.SetCursorPosition(70, 2);
+                    Console.Write("=== RESUMO DE VENDA ===");
+
+                    Console.SetCursorPosition(70, 5);
+                    Console.Write("Foram vendidas {0} unidades de Teclados", quantidadeprodutoT);
+
+                    Console.SetCursorPosition(70, 7);
+                    Console.Write("Foram vendidas {0} unidades de Lapis", quantidadeprodutoL);
+
+                    Console.SetCursorPosition(70, 9);
+                    Console.Write("Foram vendidas {0} unidades de brincos", quantidadeprodutoB);
+
+                    Console.SetCursorPosition(70, 11);
+                    Console.Write("Foram vendidas {0} unidades de ", quantidadeprodutoL);
+
+                }
+
+                if (reld == 2)
+                { }
+
+                if (reld == 3)
+                { }
+
+
+
+                if (reld == 4) //volta menu
+                {
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto voltarmenu;
+                }
+
+                
+            }
+
+
+
+
+            else if (opcao == 8)
+            {
+                Console.Clear();
+            }
+            // Número errado = erro
+            else if (opcao >= 9 | opcao <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.Clear();
+
+                Console.SetCursorPosition(120, 5);
+                Console.Write("ERRO!");
+
+                Console.ReadKey();
+
+                Console.ForegroundColor = ConsoleColor.Black;
+
+                goto voltarmenu;
+            }
+
+            Console.Clear();
+
+            Console.ReadKey();
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Console.Clear();
+
+            int numero = 11, n2;
+            bool n = numero == 11;
+            Console.SetCursorPosition(60, 21);
+            Console.WriteLine("Digite o código de verificação: ");
+
+            n2 = int.Parse(Console.ReadLine());
+
+            if (n2 != numero)
+            { Console.SetCursorPosition(60, 23); Console.WriteLine("O número está errado"); }
+            if (n2 == numero)
+            {
+                Console.SetCursorPosition(60, 23); Console.WriteLine("O número está correto! É 11");
+            }
+
+
+
+        }
+    }
+}
