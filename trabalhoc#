@@ -1134,6 +1134,12 @@ namespace estudospraprova
                     goto gerenciar;
                 }
 
+                else if (escolhap == 4)
+                {
+                    Console.Clear();
+                    Console.ReadLine();
+                    goto voltarmenu;
+                }
             }
             else if (opcao == 7) //RELATORIOS DO DIA
             {
@@ -1149,7 +1155,7 @@ namespace estudospraprova
                 Console.Write("-------------------------------------------------------------------------------");
 
                 Console.SetCursorPosition(112, 5);
-                Console.Write("-- ATIVAR PROMOÇÃO --");
+                Console.Write("-- RELATÓRIO DO DIA --");
 
                 Console.SetCursorPosition(90, 14);
                 Console.Write("1. Resumo de venda");
@@ -1164,57 +1170,62 @@ namespace estudospraprova
                 Console.Write("4. Volta ao menu principal");
 
                 Console.SetCursorPosition(90, 22);
-                Console.Write("Escolha uma opcão");
+                Console.Write("Escolha uma opcão : ");
 
                 reld = int.Parse(Console.ReadLine());
 
-                if (reld == 1)
+                switch (reld)
                 {
-                    Console.SetCursorPosition(80, 3);
-                    Console.Write("-------------------------------------------------------------------------------");
+                    case 1:
 
-                    Console.SetCursorPosition(80, 7);
-                    Console.Write("-------------------------------------------------------------------------------");
+                        Console.Clear();
+                        Console.SetCursorPosition(80, 3);
+                        Console.Write("-------------------------------------------------------------------------------");
 
-                    Console.SetCursorPosition(112, 5);
-                    Console.Write("-- ATIVAR PROMOÇÃO --");
+                        Console.SetCursorPosition(80, 7);
+                        Console.Write("-------------------------------------------------------------------------------");
 
-                    Console.SetCursorPosition(90, 5);
-                    Console.Write("Foram vendidas {0} unidades de Teclados", quantidadeprodutoT);
+                        Console.SetCursorPosition(112, 5);
+                        Console.Write("-- ATIVAR PROMOÇÃO --");
 
-                    Console.SetCursorPosition(90, 7);
-                    Console.Write("Foram vendidas {0} unidades de Lapis", quantidadeprodutoL);
+                        Console.SetCursorPosition(90, 9);
+                        Console.Write("Foram vendidas {0} unidades de Teclados", quantidadeprodutoT);
 
-                    Console.SetCursorPosition(90, 9);
-                    Console.Write("Foram vendidas {0} unidades de brincos", quantidadeprodutoB);
+                        Console.SetCursorPosition(90, 11);
+                        Console.Write("Foram vendidas {0} unidades de Lapis", quantidadeprodutoL);
 
-                    Console.SetCursorPosition(90, 11);
-                    Console.Write("Foram vendidas {0} unidades de ", quantidadeprodutoL);
+                        Console.SetCursorPosition(90, 13);
+                        Console.Write("Foram vendidas {0} unidades de brincos", quantidadeprodutoB);
 
+                        Console.SetCursorPosition(90, 15);
+                        Console.Write("Foram vendidas {0} unidades de chips", quantidadeprodutoC);
+
+                        Console.SetCursorPosition(90, 17);
+                        Console.Write("Foram vendidas {0} unidades de Relógios", quantidadeprodutoR);
+
+                        break;
+                        
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                   
+                    default:
+                        Console.Clear();
+                        Console.ReadKey();
+                        goto rel;
+                        
+                    case 4:
+                        Console.Clear();
+                        Console.ReadKey();
+                        goto voltarmenu;
                 }
 
-                if (reld == 2)
-                { }
-
-                if (reld == 3)
-                { }
-
-
-
-                if (reld == 4) //volta menu
-                {
-                    Console.ReadKey();
-                    Console.Clear();
-                    goto voltarmenu;
-                }
-
-                else
-                {
-                    Console.ReadKey();
-                    Console.Clear();
-                    goto rel;
-                }
-
+                Console.ReadKey();
+                Console.Clear();
+                goto rel;
             }
 
 
