@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace csharp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int[] num = { 6, 1, 9, 0, 5, 4, 7, 2, 3, 8 };
+
+            int pesq = 0;
+
+            /*
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (pesq == num[i])
+                {
+                    Console.WriteLine();
+
+                }
+                else
+                {
+                    Console.WriteLine("Não foi encontrado");
+                }
+            }
+            
+             */
+
+            bool achou = false;
+            int ct = 0;
+
+            while(ct <10 && !achou) 
+            {
+                if (pesq != num[ct])
+                achou = true;
+                ct++;
+                Console.WriteLine("Acho");
+            }
+
+
+            if (achou)
+                Console.WriteLine($"O número {pesq} foi encontrado na posição {ct}");
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
