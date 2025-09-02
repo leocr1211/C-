@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tropa_dos_xibungos
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {   
+                            //012345678
+            string palavra = " programa ";
+
+            Console.WriteLine(palavra);
+
+            Console.WriteLine(palavra.ToUpper());
+            Console.WriteLine(palavra.ToLower());
+
+            //pega partes da string
+            Console.WriteLine(palavra.Substring(0, 4));
+
+            //vê se contem tal palavra se sim escreverá true senao falsa
+            Console.WriteLine(palavra.Contains("pros"));
+
+            //diz o número da posição da letra
+            Console.WriteLine(palavra.IndexOf('a'));
+
+            //mesma coisa do indexof, de trás pra frente
+            Console.WriteLine(palavra.LastIndexOf('a'));
+
+            //REMOVE
+            Console.WriteLine(palavra.Remove(2, 2));
+
+            //insere mais caracteres na palavra
+            Console.WriteLine(palavra.Insert(2, "xx"));
+
+            //remove espaço existe o trimend funciona pro fim
+            Console.WriteLine(palavra.Trim());
+
+            //verifica se a string é nula ou vazia
+            Console.WriteLine(String.IsNullOrEmpty(palavra));
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
